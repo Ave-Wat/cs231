@@ -1,0 +1,43 @@
+Avery Watts  
+
+1) What's your computer's IP address for its current Internet connection? (Bonus: how can you tell the difference between your Ethernet IP and your wireless IP if you have both connections active?)
+
+using ipconfig for Windows or ifconfig for Ubuntu: 137.22.181.186
+
+2) How can you determine the IP address associated with a given host name?
+
+nslookup [hostname], (can also use ping?)
+
+3) How can you determine the host name(s) associated with a given IP address?
+
+nslookup [ipaddress], (can also use ping?)
+
+4) How can you copy a file from one computer to another? Or more to the point, if you create a file on the Kali virtual machine and you want to put it someplace where you can save it, like your your Math/CS account on mantis.mathcs.carleton.edu, how do you go about it from the Kali command-line interface?
+
+tried using scp, had to download PuTTY for Windows to use pscp.
+pscp -P 22 afish@127.0.0.1:/home/afish/Documents/tocopy.txt copy.txt created error: FATAL ERROR: Network error: Connection refused
+
+local to remote: scp file.txt remote_username@[remote ip]:/remote directory
+remote to local: scp remote_username@[remote ip]:/remote/file.txt /local/directory
+
+5) How can you tell whether there's a process listening on a given port (e.g. port 80 or port 22) on a given host?
+
+netstat
+
+6) How can you tell which ports have processes listening on them on a given host?
+
+netstat -a -b (can add -n to make faster) or netstat -aon | find /i "listening"
+need to run as administrator to do this
+
+7) How can you retrieve and save a given web page (say http://google.com/ or http://carleton.edu/) in a file on your system?
+
+curl [url] > [download filename].txt
+
+8) How can you view the HTTP headers sent back from a specified web server when you request one of its pages?
+
+curl -i [url]
+
+9) [Super bonus question] Is there a command-line-only way to view the HTTP headers that *my* computer sends when I run the commands in the previous two questions?
+
+
+*NOTE: can display all recent computer web connections with ipconfig /displaydns and can remove with ipconfig /flushdns
