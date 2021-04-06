@@ -6,11 +6,11 @@ using ipconfig for Windows or ifconfig for Ubuntu: 137.22.181.186
 
 2) How can you determine the IP address associated with a given host name?
 
-nslookup [hostname], (can also use ping?)
+nslookup [hostname url], (can also use ping?) dig [hostname url], host [hostname url]
 
 3) How can you determine the host name(s) associated with a given IP address?
 
-nslookup [ipaddress], (can also use ping?)
+nslookup [ipaddress], (can also use ping?), dig [ipaddress], host [ipaddress]
 
 4) How can you copy a file from one computer to another? Or more to the point, if you create a file on the Kali virtual machine and you want to put it someplace where you can save it, like your your Math/CS account on mantis.mathcs.carleton.edu, how do you go about it from the Kali command-line interface?
 
@@ -19,6 +19,14 @@ pscp -P 22 afish@127.0.0.1:/home/afish/Documents/tocopy.txt copy.txt created err
 
 local to remote: scp file.txt remote_username@[remote ip]:/remote directory
 remote to local: scp remote_username@[remote ip]:/remote/file.txt /local/directory
+
+need to try sftp
+
+sftp username@host url/host ip -> takes us to sftp line
+sftp> put something.txt -> uploads
+sftp> get something.txt -> fetches
+
+can enable drag and drop (devices -> drag and drop -> bidirectional)
 
 5) How can you tell whether there's a process listening on a given port (e.g. port 80 or port 22) on a given host?
 
@@ -35,6 +43,7 @@ curl [url] > [download filename].txt
 
 8) How can you view the HTTP headers sent back from a specified web server when you request one of its pages?
 
+curl -v [url]
 curl -i [url]
 
 9) [Super bonus question] Is there a command-line-only way to view the HTTP headers that *my* computer sends when I run the commands in the previous two questions?
